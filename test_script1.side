@@ -1,0 +1,86 @@
+{
+  "id": "test-project",
+  "version": "2.0",
+  "name": "YouTube Test",
+  "url": "https://www.youtube.com",
+  "tests": [
+    {
+      "id": "test1",
+      "name": "YouTube_Search_Test",
+      "commands": [
+        {
+          "id": "1",
+          "comment": "Open YouTube",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "id": "2",
+          "comment": "Assert that YouTube title is correct",
+          "command": "assertTitle",
+          "target": "YouTube",
+          "value": ""
+        },
+        {
+          "id": "3",
+          "comment": "Type 'Selenium Python Tutorial' in search box",
+          "command": "type",
+          "target": "name=search_query",
+          "value": "Selenium Python Tutorial"
+        },
+        {
+          "id": "4",
+          "comment": "Press Enter to search",
+          "command": "sendKeys",
+          "target": "name=search_query",
+          "value": "${KEY_ENTER}"
+        },
+        {
+          "id": "5",
+          "comment": "Wait for first video to appear",
+          "command": "waitForElementPresent",
+          "target": "css=ytd-video-renderer",
+          "value": "10000"
+        },
+        {
+          "id": "6",
+          "comment": "Click on the first video",
+          "command": "click",
+          "target": "css=ytd-video-renderer",
+          "value": ""
+        },
+        {
+          "id": "7",
+          "comment": "Wait for video player to load (Using waitForElementVisible with increased timeout)",
+          "command": "waitForElementVisible",
+          "target": "class=html5-video-player",
+          "value": "15000"
+        },
+        {
+          "id": "8",
+          "comment": "Take a screenshot (simulated, Selenium IDE doesn’t support file saving)",
+          "command": "echo",
+          "target": "Screenshot taken!",
+          "value": ""
+        },
+        {
+          "id": "9",
+          "comment": "Pause to allow additional time for loading if needed",
+          "command": "pause",
+          "target": "5000",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite1",
+      "name": "YouTube Suite",
+      "tests": ["test1"]
+    }
+  ],
+  "urls": ["https://www.youtube.com"],
+  "plugins": []
+}

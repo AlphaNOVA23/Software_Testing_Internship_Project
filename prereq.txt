@@ -1,0 +1,4 @@
+python --version
+pip show selenium
+pip install selenium
+pip install pytest
